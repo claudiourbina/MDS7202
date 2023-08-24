@@ -72,11 +72,13 @@
 
 1. **Clone el repositorio**
 
-    `git clone git@github.com:MDS7202/lab1.git`
+    ```sh
+    git clone git@github.com:MDS7202/lab1.git
+    ```
 
 2. **Crea un `.gitignore` que omita la carpeta `videos` y los archivos con la extension `.txt` exceptuando el archivo `171.txt` de la carpeta `texts`.**
 
-    ```
+    ```sh
     # .gitignore
     videos/
     texts/*.txt
@@ -114,4 +116,46 @@
 
 8. **Cree una rama nueva y proponga una solución al problema anterior, adjuntando el código corregido y señalando las líneas modificadas.**
 
-    ...
+    Se clona el repositorio y se crea una rama para solucionar el problema.
+
+    ```sh
+    git clone git@github.com:MDS7202/lab1.git
+    git checkout main
+    git checkout -b bugfix/if-statments
+    ```
+
+    Se modifica el archivo `animals.py` quedando de esta manera.
+
+    ```py
+    def animales(input):
+    
+        '''
+        Como hace el animalito?
+        '''
+        
+        if input.lower() == 'gato':
+            print('miau')
+        elif input.lower() == 'perro':
+            print('guau')
+        elif input.lower() == 'fox':
+            print('https://www.youtube.com/watch?v=jofNR_WkoCE')
+        else:
+            raise ValueError('animal no reconocido :(')
+    ```
+
+    Se agregan las modificaciones al seguimiento y a un `commit`. Finalmente, se pushea la rama (que de momento solo existe de manera local) al repositorio remoto.
+
+    ```sh
+    git add animals.py
+    git commit -m "fixed if statments"
+    git push --set-upstream origin bugfix/if-statements
+    ```
+
+    Luego, se debe hacer el merge con la rama `main` para aplicar estos cambios en la rama. Esto, trae los `commits` a la rama main en el repositorio local, luego hay que mandarlos al repositorio remoto.
+
+    ```sh
+    git checkout main
+    git pull
+    git merge bugfix/if-statments
+    git push
+    ```
