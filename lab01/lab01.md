@@ -41,29 +41,28 @@
 
 7. **Ejecutar `git pull` sobre un repositorio es equivalente a ejecutar `git clone`.**
 
-    **Falso**. `git pull` es utilizado para actualizar el repositorio local respecto a los cambios que existen en el servidor (por ejemplo: `github`), mientras que, `git clone` es utilizado para "*descargar*" un repositorio desde el servidor a tu entorno local por primera vez (*no quise usar la palabra clonar, aunque, sé que descargar tampoco es la palabra adecuada*).
+    **Falso**. `git pull` es utilizado para actualizar el repositorio local respecto a los cambios que existen en el servidor remoto (por ejemplo: `github`), mientras que, `git clone` es utilizado para "*descargar*" un repositorio desde el servidor remoto a tu entorno local por primera vez (*no quise usar la palabra clonar, aunque, sé que descargar tampoco es la palabra adecuada*).
 
 8. **`git status` genera los mismos resultados que `git log`.**
-
-    **Falso**. `git status` es utilizado para listar los archivos que han sido creados/modificados/borrados en el repositorio local, mientras que, `git log` es utilizado para listar los commits aplicados en el repositorio.
+    **Falso**. `git status` es utilizado para listar los archivos que han sido creados/modificados/borrados en el repositorio local, mientras que, `git log` es utilizado para listar los `commits` aplicados en el repositorio.
 
 9.  **En `Git` es posible deshacer cambios y volver a versiones anteriores del código.**
 
-    ...
+    **Verdadero**. La objetivo principal de tener un sistema de control de versiones es principalmente este, poder deshacer y volver a versiones anteriores del código.
 
 10. **El comando `git commit` se utiliza para enviar cambios al repositorio remoto.**
 
-    ...
+    **Falso**. `git commit` es utilizado para guardar el snapshot de los cambios realizados en el repositorio, pero, es cambios no son enviados al repositorio remoto hasta aplicar `git push`.
 
 ### 1.c. Investigue
 
 11. **¿Para que sirve `git stash`?**
 
-    ...
+    `git stash` permite guardar los cambios realizados en el repositorio local, de manera temporal. Al aplicar `git stash` los cambios *desaparecen* del repositorio local, permitiendote cambiar de contexto para hacer otros cambios, y posteriormente, volver a aplicar los cambios guardados en el `stash`.
 
 12. **¿Para que sirve `git reset`?. ¿Cuál es la diferencia de este comando con `git revert`?**
 
-    ...
+    `git reset` permite restablecer el estado de uno o más archivos de tu repositorio a un estado específico, sobreescribiendo el historial de `commits`, mientras que, `git revert` permite restablecer el estado del repositorio a un `commit` anterior, creando un `commit` completamente **nuevo**, dejando el historial mucho más limpio y que muy posiblemente, no afecte a otros colaboradores del mismo repositorio.
 
 ## Parte 2: Presentacion Personal
 
