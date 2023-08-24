@@ -72,7 +72,7 @@
 
 1. **Clone el repositorio**
 
-    `git clone https://github.com/MDS7202/lab1.git`
+    `git clone git@github.com:MDS7202/lab1.git`
 
 2. **Crea un `.gitignore` que omita la carpeta `videos` y los archivos con la extension `.txt` exceptuando el archivo `171.txt` de la carpeta `texts`.**
 
@@ -85,22 +85,33 @@
 
 3. **Cual es el objetivo del proyecto?. Explique la estructura del proyecto y los elementos que lo conforman.**
 
-    ...
+    El objetivo del proyecto es imprimir el sonido que hace el animal por el que se le consulta. La estructura es la siguiente:
+    ```text
+    .
+    └── lab1/
+        ├── main.py # interfaz que recibe la consulta
+        ├── animales.py # contiene el sonido de los animales a consultar
+        └── readme.md # deberia contener la información del repositorio
+    ```
+
 4. **Identifique los últimos cambios al repositorio, reconociendo las principales ramas de trabajo. ¿Son informativos los `commit` realizados?**
 
-    ...
+    Existen tres ramas: `main`, `new_features`, `fix-ifs`. Se podría decir que son algo informativos ya que indican de manera general cuales son los cambios realizados.
+
 5. **Uno de los académicos se da cuenta que la rama principal de trabajo no se ejecuta correctamente para todos los argumentos. Señale y explique el error en el código e identifique a la persona que lo cometió usando `git blame`.**
 
-    ...
-6. **Busque los siguientes `commit`. ¿Qué diferencias existen entre cada uno?**
-   1. `c8b1a62d7299552b0654f930d695b33109214111`
-   2. `362fe21ee44f53ee944cee4ba484600308f83d78`
-   3. `25543a3baf77292baf849726784ca005473acab1`
+    El error es que, en el archivo` animales.py`, el *statment* `else` aplica solo sobre el último `if` y no para todas las condiciones. Al ejecutar `git blame animales.py` se puede observar que el archivo completo fue realizado por el usuario `mezosky`.
 
-    ...
+6. **Busque los siguientes `commit`. ¿Qué diferencias existen entre cada uno?**
+   
+   1. `c8b1a62d7299552b0654f930d695b33109214111`: Agrega la función `animales` al archivo `main.py`.
+   2. `362fe21ee44f53ee944cee4ba484600308f83d78`: Separa la función `animales` en un módulo nuevo llamado `animales.py`.
+   3. `25543a3baf77292baf849726784ca005473acab1`: Corrige el error de los `ifs` que habia en la función `animales` en `animales.py`
+   
 7. **Realice una `merge` de la rama `fix-ifs` con la rama `main` y describa lo que ocurre. ¿Qué parte del código podría estar ocasionando esto?**
 
-    ...
+    Hay un conflicto al hacer el `merge` entre ambas ramas. Básicamente, la rama `fix-ifs` tiene el mismo historial de `commits` que `main` hasta cierto punto (el penultimo `commit`, en el cual se agrega la función `animales` a `main.py`), pero, después de ese commit, ambas ramas siguieron caminos diferentes, incluyendo un `commit` distinto a su historial. Por su parte, la rama `main` separó la función `animales` en un módulo distinto llamado `animales.py`, mientras que, la rama `fix-ifs` arregló el problema de los `ifs` en la misma función que existia en `main.py` (sin la separación de modulos). Esta inconsistencia entre ambos historiales no permite que el `merge` se haga de manera natural, teniendo que resolver el conflicto de manera manual.
+
 8. **Cree una rama nueva y proponga una solución al problema anterior, adjuntando el código corregido y señalando las líneas modificadas.**
 
     ...
